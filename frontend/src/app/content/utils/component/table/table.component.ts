@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-table',
@@ -6,7 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+@Input() cols
+@Input() data
+@Input() options
+@Output() clickEven=new EventEmitter
 
+clickOption(option){
+this.clickEven.emit(option)
+
+}
   constructor() { }
 
   ngOnInit(): void {

@@ -1,11 +1,9 @@
 <div class="row">
-    <div class="col-md-4">
-        <app-table></app-table>
-        <button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show">sdss</button>
-    </div>
-    <p-dialog [closable]="true" header="Title" (onHide)="hideDialog()" [(visible)]="display">
-        Content
-    </p-dialog>
+    <div class="col-md-6">
+    
+        <app-table [cols]="cols" [data]="data" [options]="options" (clickEven)="receiveclick($event)"></app-table>
+  </div>
+<app-dialog [display]="display" [object]="object" [cols]="cols"  (hideDialogEvent)="hideDialog()" (formEvent)="receiveForm($event)"></app-dialog>
     
  
 </div>

@@ -1,0 +1,3 @@
+<p-dialog [closable]="true" header="Title" (onHide)="hideDialog()" [(visible)]="display">
+    <app-forms [controls]="cols" [object]="object" (formSsaved)="transmissForm($event)"></app-forms>
+</p-dialog>

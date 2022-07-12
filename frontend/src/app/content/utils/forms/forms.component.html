@@ -1,0 +1,49 @@
+
+    <div [formGroup]="baseForm"  class="row">
+
+      <div [ngClass]="'col-md-'+ctrl.style"  *ngFor="let ctrl of controls;
+       let i = index;"
+     
+       >
+     <div   *ngIf="ctrl.hidden==false">
+                <div  class="form-group">
+            <label>{{ctrl.field.header}}</label>
+      <app-input [disabled]="ctrl.field.disabled" *ngIf="ctrl.field.type==='text'"
+       [value]="value(object,ctrl.field.name)" [label]="ctrl.header" 
+      (textchanged)="changeValue($event,ctrl.field.name)" ></app-input>
+      <app-input-date [date]="value(object,ctrl.field.name)"
+      [disabled]="ctrl.field.disabled"  *ngIf="ctrl.field.type==='date'">
+    
+      </app-input-date>
+     
+        <app-dropdown [disabled]="ctrl.field.disabled" [placeHolder]="ctrl.header"
+         [value]="value(object,ctrl.field.name)"
+         (valuechanged)="changeValueFromDown($event,ctrl.field.name)"
+          *ngIf="ctrl.field.type==='select'"
+            [url]="ctrl.field.url"
+        
+           [label]="ctrl.field.option" 
+           [placeHolder]="ctrl.header"></app-dropdown>
+           <app-input-area *ngIf="ctrl.field.type==='area'" [label]="ctrl.header" (textchanged)="changeValue($event,ctrl.field.name)"
+           [value]="value(object,ctrl.field.name)"  ></app-input-area>   
+        <div class="col-auto" *ngIf="isSave && f[ctrl.field.name].errors ">
+      
+          <div class="text-danger"> {{ctrl.header}} is required.</div>
+                 </div>
+                 
+    </div>
+        </div>
+    
+            
+    </div>
+    
+    </div>
+
+
+    <button class="btn btn-success btn-block" (click)="save()">Save</button>
+
+
+
+  
+  
+  

@@ -1,0 +1,14 @@
+
+<p-dropdown 
+appendTo="body" 
+(onChange)="change($event)"
+[filter]="true"
+[showClear]="true" 
+styleClass="{{class}}"
+[(ngModel)]="value"
+[options]="list"  
+[disabled]="disabled"
+[dataKey]="'id'"
+placeholder="{{placeHolder}}"
+optionLabel="conversion"
+ ></p-dropdown>

@@ -1,59 +1,47 @@
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Bordered Table</h3>
+    <div class="card-tools">
+      <ul *ngFor="let option of options" class="nav nav-pills ml-auto">
+        <li class="nav-item">
+          <a (click)="clickOption(option)" class="nav-link active">
+            <i [ngClass]="option.icon"></i>
+            {{option.label}}</a>
+        </li>
+ 
+      </ul>
+    </div>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th style="width: 10px">#</th>
-          <th>Task</th>
-          <th>Progress</th>
-          <th style="width: 40px">Label</th>
+       <th></th>
+          <th *ngFor="let col of cols">{{col.field.header}}</th>
+   
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1.</td>
-          <td>Update software</td>
+        <tr *ngFor="let d of data">
           <td>
-            <div class="progress progress-xs">
-              <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-            </div>
-          </td>
-          <td><span class="badge bg-danger">55%</span></td>
+            <div class="card">
+              <div class="row">
+                <div *ngFor="let optionData of d.options" class="col-md-12">
+                  <button (click)="clickOption(optionData)" 
+                  class="btn btn-success btn-block">
+                    <i [ngClass]="optionData.icon"></i>
+                    {{optionData.label}}</button>
+                </div>
+              
+              </div>   
+
+          </div>
+        </td>
+          <td *ngFor="let col of cols">{{d[col.field.name]}}</td>
+     
         </tr>
-        <tr>
-          <td>2.</td>
-          <td>Clean database</td>
-          <td>
-            <div class="progress progress-xs">
-              <div class="progress-bar bg-warning" style="width: 70%"></div>
-            </div>
-          </td>
-          <td><span class="badge bg-warning">70%</span></td>
-        </tr>
-        <tr>
-          <td>3.</td>
-          <td>Cron job running</td>
-          <td>
-            <div class="progress progress-xs progress-striped active">
-              <div class="progress-bar bg-primary" style="width: 30%"></div>
-            </div>
-          </td>
-          <td><span class="badge bg-primary">30%</span></td>
-        </tr>
-        <tr>
-          <td>4.</td>
-          <td>Fix and squish bugs</td>
-          <td>
-            <div class="progress progress-xs progress-striped active">
-              <div class="progress-bar bg-success" style="width: 90%"></div>
-            </div>
-          </td>
-          <td><span class="badge bg-success">90%</span></td>
-        </tr>
+      
       </tbody>
     </table>
   </div>

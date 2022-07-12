@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './content/navigation/navbar/navbar.component';
@@ -17,8 +18,12 @@ import { ExpandedTableComponent } from './content/utils/component/table/expanded
 import { PlanningComponent } from './content/page/planning/planning.component';
 import { RdvListComponent } from './content/page/planning/rdv-list/rdv-list.component';
 import { MysidebarComponent } from './content/navigation/mysidebar/mysidebar.component';
-import { FormsModule } from '@angular/forms';
 
+import { DialogComponent } from './content/utils/dialog/dialog.component';
+import { FormsComponent } from './content/utils/forms/forms.component';
+import { InputComponent } from './content/utils/input/input.component';
+import { InputAreaComponent } from './content/utils/input-area/input-area.component';
+import { InputDateComponent } from './content/utils/input-date/input-date.component';
 //full calendar
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
@@ -28,6 +33,33 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import {ButtonModule} from 'primeng/button';
 import { ApplicationComponent } from './content/page/application/application.component';
 import {DialogModule} from 'primeng/dialog';
+
+import {StepsModule} from 'primeng/steps';
+import {ConfirmationService, MenuItem, MessageService} from 'primeng/api';
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import {InputSwitchModule} from 'primeng/inputswitch';
+import {TabViewModule} from 'primeng/tabview';
+import {TableModule} from 'primeng/table';
+
+import {DropdownModule} from 'primeng/dropdown';
+import {CalendarModule} from 'primeng/calendar';
+import { AutoCompleteModule } from "primeng/autocomplete";
+
+import { ChipsModule } from "primeng/chips";
+import {ToolbarModule} from 'primeng/toolbar';
+import { InputMaskModule } from "primeng/inputmask";
+import { InputNumberModule } from "primeng/inputnumber";
+import { CascadeSelectModule } from "primeng/cascadeselect";
+import { MultiSelectModule } from "primeng/multiselect";
+import { InputTextareaModule } from "primeng/inputtextarea";
+import { InputTextModule } from "primeng/inputtext";
+
+import {DividerModule} from 'primeng/divider';
+
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {CheckboxModule} from 'primeng/checkbox';
+import { DropdownComponent } from './content/utils/dropdown/dropdown.component';
+
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -52,7 +84,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     TableComponent,
     ExpandedTableComponent,
     MysidebarComponent,
-    ApplicationComponent
+    ApplicationComponent,
+    DialogComponent,
+    FormsComponent,
+    InputComponent,
+    InputAreaComponent,
+    InputDateComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +99,44 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule,
    ButtonModule,
    FormsModule,
-   DialogModule
+   DialogModule,
+   ReactiveFormsModule,
+   StepsModule,
+   DropdownModule,
+   TabViewModule,
+   TableModule,
+   HttpClientModule,
+   ToolbarModule,
+
+   ChipsModule,
+
+AutoCompleteModule,
+
+   InputNumberModule,
+ FormsModule,
+ InputNumberModule,
+ DialogModule,
+ InputSwitchModule,
+ CalendarModule,
+ InputSwitchModule,
+
+ ChipsModule,
+
+ CheckboxModule,
+ InputMaskModule,
+ InputNumberModule,
+ CascadeSelectModule,
+ MultiSelectModule,
+
+ InputTextareaModule,
+ InputTextModule,
+ DividerModule,
+ RadioButtonModule,
+
+ FullCalendarModule,
+ CalendarModule,
+
+
     
   ],
   providers: [],
