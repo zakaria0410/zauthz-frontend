@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-table></app-table>
+        <button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show">sdss</button>
+    </div>
+    <p-dialog [closable]="true" header="Title" (onHide)="hideDialog()" [(visible)]="display">
+        Content
+    </p-dialog>
+    
+ 
+</div>
