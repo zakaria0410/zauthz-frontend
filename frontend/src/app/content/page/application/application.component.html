@@ -1,9 +1,40 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
     
-        <app-table [cols]="cols" [data]="data" [options]="options" (clickEven)="receiveclick($event)"></app-table>
+        <app-table [title]="'All Applications'" 
+        [cols]="cols" [data]="data" 
+        [options]="options" (clickEven)="receiveclick($event)"></app-table>
   </div>
-<app-dialog [display]="display" [object]="object" [cols]="cols"  (hideDialogEvent)="hideDialog()" (formEvent)="receiveForm($event)"></app-dialog>
+  <div *ngIf="selected!=null" class="col-md-8">
+   <div class="card">
+    <div class="card-header">
+      <h1 class="card-title">
+        {{selected["name"]}}
+      </h1>
+    </div>
+    <div class="card-body">
+    
+<p >
+  {{selected["descriptif"]}}
+  </p>
+  <h5>Modules</h5>
+  <p>
+
+  </p>
+  
+ 
+
+
+
+
+    </div>
+
+   </div>
+  
+  </div>
+<app-dialog [display]="display"
+ [object]="object" [cols]="cols"  
+ (hideDialogEvent)="hideDialog()" (formEvent)="receiveForm($event)"></app-dialog>
     
  
 </div>

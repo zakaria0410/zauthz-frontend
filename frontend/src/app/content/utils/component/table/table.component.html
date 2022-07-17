@@ -1,10 +1,10 @@
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Bordered Table</h3>
+    <h3 class="card-title">{{title}}</h3>
     <div class="card-tools">
       <ul *ngFor="let option of options" class="nav nav-pills ml-auto">
         <li class="nav-item">
-          <a (click)="clickOption(option)" class="nav-link active">
+          <a (click)="clickOption(option)" [ngClass]="'btn btn-'+option.class">
             <i [ngClass]="option.icon"></i>
             {{option.label}}</a>
         </li>
@@ -13,33 +13,35 @@
     </div>
   </div>
   <!-- /.card-header -->
-  <div class="card-body">
-    <table class="table table-bordered">
+  <div class="card-body p-0">
+    <table class="table table-striped projects">
       <thead>
         <tr>
-       <th></th>
-          <th *ngFor="let col of cols">{{col.field.header}}</th>
+          <th *ngFor="let col of colsshown">{{col.field.header}}</th>
    
+          <th></th>
+        
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let d of data">
+        
+          <td *ngFor="let col of colsshown">{{d[col.field.name]}}</td>
           <td>
-            <div class="card">
-              <div class="row">
-                <div *ngFor="let optionData of d.options" class="col-md-12">
-                  <button (click)="clickOption(optionData)" 
-                  class="btn btn-success btn-block">
-                    <i [ngClass]="optionData.icon"></i>
-                    {{optionData.label}}</button>
-                </div>
-              
-              </div>   
+    
+            <div class="row">
+              <div *ngFor="let optionData of d.options" class="col-md-4">
+              <button (click)="clickOption(optionData)" 
+                [ngClass]="'btn btn-'+optionData.class+' btn-block m-b'">
+                  <i [ngClass]="optionData.icon"></i>
+                  {{optionData.variable}}
+                 </button>
+              </div>
+            
+         
 
-          </div>
-        </td>
-          <td *ngFor="let col of cols">{{d[col.field.name]}}</td>
-     
+        </div>
+      </td>
         </tr>
       
       </tbody>

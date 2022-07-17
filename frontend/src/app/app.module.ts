@@ -59,6 +59,7 @@ import {DividerModule} from 'primeng/divider';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {CheckboxModule} from 'primeng/checkbox';
 import { DropdownComponent } from './content/utils/dropdown/dropdown.component';
+import { ApplicationDetailsComponent } from './content/pages/application/application-details/application-details.component';
 
 
 
@@ -90,7 +91,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     InputComponent,
     InputAreaComponent,
     InputDateComponent,
-    DropdownComponent
+    DropdownComponent,
+    ApplicationDetailsComponent
   ],
   imports: [
     BrowserModule,
