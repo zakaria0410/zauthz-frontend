@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-interactive-list [label]="'label'" (itemCliked)="receiveItemClick($event)" [data]="options"></app-interactive-list>
+
+    </div>
+    <div *ngIf="optionSelected" class="col-md-8">
+
+        <app-admin-template [title]="optionSelected.title"  [data]="data" 
+        [cols]="optionSelected.cols"
+        [title]="optionSelected.title"
+         [options]="optionSelected.options"
+         (clickEven)="receiveClick($event)"></app-admin-template>
+        </div>
+   
+</div>
+
+<app-dialog *ngIf="optionSelected" (formEvent)="saveForm($event)" [title]="optionSelected.title" [display]="displayCreate" [cols]="optionSelected.cols"></app-dialog>
+       

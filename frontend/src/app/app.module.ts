@@ -24,6 +24,11 @@ import { FormsComponent } from './content/utils/forms/forms.component';
 import { InputComponent } from './content/utils/input/input.component';
 import { InputAreaComponent } from './content/utils/input-area/input-area.component';
 import { InputDateComponent } from './content/utils/input-date/input-date.component';
+import { DropdownComponent } from './content/utils/dropdown/dropdown.component';
+import { ApplicationDetailsComponent } from './content/page/application/application-details/application-details.component';
+import { ListItemsComponent } from './content/utils/component/list-items/list-items.component';
+import { AdminTemplateComponent } from './content/utils/component/admin-template/admin-template.component';
+
 //full calendar
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
@@ -58,9 +63,8 @@ import {DividerModule} from 'primeng/divider';
 
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {CheckboxModule} from 'primeng/checkbox';
-import { DropdownComponent } from './content/utils/dropdown/dropdown.component';
-import { ApplicationDetailsComponent } from './content/pages/application/application-details/application-details.component';
-
+import { SettingsPageComponent } from './content/page/settings/settings-page.component';
+import { InteractiveListComponent } from './content/utils/component/interactive-list/interactive-list.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -92,7 +96,11 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     InputAreaComponent,
     InputDateComponent,
     DropdownComponent,
-    ApplicationDetailsComponent
+    ApplicationDetailsComponent,
+    ListItemsComponent,
+    AdminTemplateComponent,
+    SettingsPageComponent,
+    InteractiveListComponent
   ],
   imports: [
     BrowserModule,

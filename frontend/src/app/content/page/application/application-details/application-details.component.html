@@ -1,7 +1,10 @@
 <div class="row">
   <app-dialog [display]="display"  [cols]="cols"  (hideDialogEvent)="hideDialog()" (formEvent)="receiveForm($event)"></app-dialog>
   <app-dialog [display]="displayFunction" [title]="'Nouvelle Fonction'" [cols]="colsFunction"  (hideDialogEvent)="hideDialogFunction()" (formEvent)="receiveFormFunction($event)"></app-dialog>
-     
+  <app-dialog [display]="displayVersion" [title]="'Nouvelle Version'"
+   [cols]="colsVersion"  (hideDialogEvent)="hideDialogVersion()" 
+   (formEvent)="receiveFormVersion($event)"></app-dialog>
+    
 </div>
       <!-- Default box -->
       <div *ngIf="application!=null" class="card">
@@ -71,7 +74,8 @@
                         <span class="description">Shared publicly - 5 days ago</span>
                       </div>
                       <!-- /.user-block -->
-                    <app-table [data]="module.functions" [options]="options"
+                    <app-table [data]="module.functions"
+                     [options]="options"
                      [title]="'Fonctionnalités'" [cols]="colsFunction"
                       (clickEven)="click($event,module)"></app-table>
 
@@ -84,7 +88,8 @@
               </div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 order-1 order-md-2">
-              <h3 class="text-primary"><i class="fas fa-paint-brush"></i> {{id}}</h3>
+              <h3 class="text-primary">
+                <i class="fas fa-paint-brush"></i> {{application.name}}</h3>
               <p class="text-muted">{{application.descriptif}}</p>
               <br>
               <div class="text-muted">
@@ -96,28 +101,11 @@
                 </p>
               </div>
 
-              <h5 class="mt-5 text-muted">Project files</h5>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-pdf"></i> UAT.pdf</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-envelope"></i> Email-from-flatbal.mln</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Logo.png</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Contract-10_12_2014.docx</a>
-                </li>
-              </ul>
-              <div class="text-center mt-5 mb-3">
-                <a href="#" class="btn btn-sm btn-primary">Add files</a>
-                <a href="#" class="btn btn-sm btn-warning">Report contact</a>
-              </div>
+              <h5 class="mt-5 text-muted">Version</h5>
+             <app-list-items [data]="versions" 
+             [options]="optionsVersion" 
+             [label]="'name'"
+             (clickEven)="clickVersion($event)"></app-list-items>
             </div>
           </div>
         </div>

@@ -1,0 +1,5 @@
+<div class="list-group">
+    <button *ngFor="let d of data" type="button" (click)="clickMenu(d)" [ngClass]="d.style+' '+active(d)" aria-current="true">
+      {{d[label]}}
+    </button>
+     </div>

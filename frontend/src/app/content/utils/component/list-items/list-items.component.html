@@ -1,0 +1,20 @@
+<ul class="list-unstyled">
+    <li *ngFor="let d of data">
+      <a href="" class="btn-link text-secondary">
+        <i class="far fa-fw fa-file-word"></i> 
+        {{d[label]}}
+    </a>
+    </li>
+  </ul>
+  <div class="text-center mt-5 mb-3">
+    <div *ngFor="let option of options">
+      
+            <div *ngFor="let optionData of options">
+         
+               <a (click)="clickOption(optionData)"
+                class="btn btn-sm btn-primary">{{optionData.label}}</a>           
+
+    </div>
+ 
+
+  </div>
